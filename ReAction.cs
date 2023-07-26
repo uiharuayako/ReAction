@@ -22,20 +22,20 @@ public class ReAction : DalamudPlugin<Configuration>, IDalamudPlugin
         actionSheet = DalamudApi.DataManager.GetExcelSheet<Lumina.Excel.GeneratedSheets.Action>()?.Where(i => i.ClassJobCategory.Row > 0 && i.ActionCategory.Row <= 4 && i.RowId > 8).ToDictionary(i => i.RowId, i => i);
         mountActionsSheet = DalamudApi.DataManager.GetExcelSheet<Lumina.Excel.GeneratedSheets.Action>()?.Where(i => i.ActionCategory.Row == 12).ToDictionary(i => i.RowId, i => i);
         if (actionSheet == null || mountActionsSheet == null)
-            throw new ApplicationException("Action sheet failed to load!");
+            throw new ApplicationException("加载失败！");
     }
 
     protected override void ToggleConfig() => PluginUI.IsVisible ^= true;
 
-    [PluginCommand("/reaction", HelpMessage = "Opens / closes the config.")]
+    [PluginCommand("/reaction", HelpMessage = "打开 / 关闭设置.")]
     private void ToggleConfig(string command, string argument) => ToggleConfig();
 
-    [PluginCommand("/macroqueue", "/mqueue", HelpMessage = "[on|off] - Toggles (with no argument specified), enables or disables /ac queueing in the current macro.")]
+    [PluginCommand("/macroqueue", "/mqueue", HelpMessage = "[on|off] - 切换 (无冲突), 启用或禁用当前宏中的 /ac 排队。")]
     private void OnMacroQueue(string command, string argument)
     {
         if (!Common.IsMacroRunning)
         {
-            DalamudApi.PrintError("This command requires a macro to be running.");
+            DalamudApi.PrintError("该命令必须在宏运行中使用。闲鱼小店改json倒卖本插件必死全家，如果你是闲鱼购买，请退款举报");
             return;
         }
 
@@ -52,7 +52,7 @@ public class ReAction : DalamudPlugin<Configuration>, IDalamudPlugin
                     Game.queueACCommandPatch.Toggle();
                 break;
             default:
-                DalamudApi.PrintError("Invalid usage.");
+                DalamudApi.PrintError("无效使用.");
                 break;
         }
     }

@@ -29,7 +29,7 @@ public static unsafe class ActionStackManager
             if (useType == 100)
             {
                 useType = 0;
-                DalamudApi.LogDebug("UseAction called from a macro using /macroqueue");
+                DalamudApi.LogDebug("使用从宏调用的操作/macroqueue");
             }
 
             PreUseAction?.Invoke(actionManager, ref actionType, ref actionID, ref targetObjectID, ref param, ref useType, ref pvp);
@@ -46,7 +46,7 @@ public static unsafe class ActionStackManager
             var succeeded = false;
             if (PluginModuleManager.GetModule<Modules.ActionStacks>().IsValid && tryStack && actionType == 1 && ReAction.actionSheet.TryGetValue(adjustedActionID, out var a))
             {
-                DalamudApi.LogDebug("Checking stacks");
+                DalamudApi.LogDebug("检查预设");
 
                 var modifierKeys = GetModifierKeys();
                 foreach (var stack in ReAction.Config.ActionStacks)
@@ -64,13 +64,13 @@ public static unsafe class ActionStackManager
                     {
                         if (stack.BlockOriginal)
                         {
-                            DalamudApi.LogDebug("Stack failed, blocking original");
+                            DalamudApi.LogDebug("预设失败，阻止原始预设");
                             return 0;
                         }
                         break;
                     }
 
-                    DalamudApi.LogDebug($"Stack succeeded {adjustedActionID} -> {newAction}, {targetObjectID:X} -> {newTarget:X}");
+                    DalamudApi.LogDebug($"预设成功 {adjustedActionID} -> {newAction}, {targetObjectID:X} -> {newTarget:X}");
 
                     actionID = newAction;
                     adjustedActionID = newAction;
@@ -153,7 +153,7 @@ public static unsafe class ActionStackManager
     {
         if ((ReAction.Config.EnableBlockMiscInstantGroundTargets && actionType == 11) || useType == 2 && actionType == 1 || actionType == 15) return;
 
-        DalamudApi.LogDebug($"Making ground target instant {actionType}, {useType}");
+        DalamudApi.LogDebug($"即时实现地面目标 {actionType}, {useType}");
 
         Common.ActionManager->activateGroundTarget = 1;
     }

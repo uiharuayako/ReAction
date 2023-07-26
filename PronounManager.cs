@@ -38,7 +38,7 @@ public interface IGamePronoun
 
 public class HardTargetPronoun : IGamePronoun
 {
-    public string Name => "Target";
+    public string Name => "目标";
     public string Placeholder => "<hard>";
     public uint ID => 10_000;
     public unsafe GameObject* GetGameObject() => (GameObject*)DalamudApi.TargetManager.Target?.Address;
@@ -46,7 +46,7 @@ public class HardTargetPronoun : IGamePronoun
 
 public class SoftTargetPronoun : IGamePronoun
 {
-    public string Name => "Soft Target";
+    public string Name => "软目标";
     public string Placeholder => "<soft>";
     public uint ID => 10_001;
     public unsafe GameObject* GetGameObject() => (GameObject*)DalamudApi.TargetManager.SoftTarget?.Address;
@@ -54,7 +54,7 @@ public class SoftTargetPronoun : IGamePronoun
 
 public class UITargetPronoun : IGamePronoun
 {
-    public string Name => "UI Target";
+    public string Name => "UI目标";
     public string Placeholder => "<ui>";
     public uint ID => 10_002;
     public unsafe GameObject* GetGameObject() => Common.UITarget;
@@ -62,7 +62,7 @@ public class UITargetPronoun : IGamePronoun
 
 public class FieldTargetPronoun : IGamePronoun
 {
-    public string Name => "Field Target";
+    public string Name => "地面目标";
     public string Placeholder => "<field>";
     public uint ID => 10_003;
     public unsafe GameObject* GetGameObject() => (GameObject*)DalamudApi.TargetManager.MouseOverTarget?.Address;
@@ -70,7 +70,7 @@ public class FieldTargetPronoun : IGamePronoun
 
 public class FieldTargetPartyMemberPronoun : IGamePronoun
 {
-    public string Name => "Field Target Party Member";
+    public string Name => "地面目标队员";
     public string Placeholder => "<fieldp>";
     public uint ID => 10_004;
 
@@ -110,7 +110,7 @@ public class FieldTargetPartyMemberPronoun : IGamePronoun
 
 public class LowestHPPronoun : IGamePronoun
 {
-    public string Name => "Lowest HP Party Member";
+    public string Name => "血量最少队员";
     public string Placeholder => "<lowhp>";
     public uint ID => 10_010;
     public unsafe GameObject* GetGameObject()
@@ -122,7 +122,7 @@ public class LowestHPPronoun : IGamePronoun
 
 public class LowestHPPPronoun : IGamePronoun
 {
-    public string Name => "Lowest HPP Party Member";
+    public string Name => "血百分比最少队员";
     public string Placeholder => "<lowhpp>";
     public uint ID => 10_011;
     public unsafe GameObject* GetGameObject()
@@ -142,7 +142,7 @@ public class KardionPronoun : IGamePronoun
 
 public class TankPronoun : IGamePronoun
 {
-    public string Name => "Tank";
+    public string Name => "T";
     public string Placeholder => "<tank>";
     public uint ID => 10_200;
     public unsafe GameObject* GetGameObject() => PronounHelpers.GetPartyMemberByRoleID(1);
@@ -150,7 +150,7 @@ public class TankPronoun : IGamePronoun
 
 public class HealerPronoun : IGamePronoun
 {
-    public string Name => "Healer";
+    public string Name => "奶";
     public string Placeholder => "<healer>";
     public uint ID => 10_203;
     public unsafe GameObject* GetGameObject() => PronounHelpers.GetPartyMemberByRoleID(4);
@@ -182,7 +182,7 @@ public class DPSPronoun : IGamePronoun
 
 public class MeleeDPSPronoun : IGamePronoun
 {
-    public string Name => "Melee DPS";
+    public string Name => "近战";
     public string Placeholder => "<melee>";
     public uint ID => 10_207;
     public unsafe GameObject* GetGameObject() => PronounHelpers.GetPartyMemberByRoleID(2);
@@ -190,7 +190,7 @@ public class MeleeDPSPronoun : IGamePronoun
 
 public class RangedDPSPronoun : IGamePronoun
 {
-    public string Name => "Ranged DPS";
+    public string Name => "远程";
     public string Placeholder => "<ranged>";
     public uint ID => 10_208;
     public unsafe GameObject* GetGameObject() => PronounHelpers.GetPartyMemberByRoleID(3);
@@ -198,7 +198,7 @@ public class RangedDPSPronoun : IGamePronoun
 
 public class PhysicalRangedDPSPronoun : IGamePronoun
 {
-    public string Name => "Physical Ranged DPS";
+    public string Name => "物理远D";
     public string Placeholder => "<pranged>";
     public uint ID => 10_209;
     public unsafe GameObject* GetGameObject() => PronounHelpers.GetPartyMemberByLimitBreak1(4238);
@@ -206,7 +206,7 @@ public class PhysicalRangedDPSPronoun : IGamePronoun
 
 public class MagicalRangedDPSPronoun : IGamePronoun
 {
-    public string Name => "Magical Ranged DPS";
+    public string Name => "法师远D";
     public string Placeholder => "<mranged>";
     public uint ID => 10_210;
     public unsafe GameObject* GetGameObject() => PronounHelpers.GetPartyMemberByLimitBreak1(203);
@@ -216,7 +216,7 @@ public class PaladinPronoun : IGamePronoun
 {
     private const byte ClassJobID = 19;
 
-    public string Name => "Paladin";
+    public string Name => "骑士";
     public string Placeholder => "<pld>";
     public uint ID => 10_220 + ClassJobID;
     public unsafe GameObject* GetGameObject() => PronounHelpers.GetPartyMemberByClassJobID(ClassJobID);
@@ -226,7 +226,7 @@ public class WarriorPronoun : IGamePronoun
 {
     private const byte ClassJobID = 21;
 
-    public string Name => "Warrior";
+    public string Name => "战士";
     public string Placeholder => "<war>";
     public uint ID => 10_220 + ClassJobID;
     public unsafe GameObject* GetGameObject() => PronounHelpers.GetPartyMemberByClassJobID(ClassJobID);
@@ -236,7 +236,7 @@ public class DarkKnightPronoun : IGamePronoun
 {
     private const byte ClassJobID = 32;
 
-    public string Name => "Dark Knight";
+    public string Name => "DK";
     public string Placeholder => "<drk>";
     public uint ID => 10_220 + ClassJobID;
     public unsafe GameObject* GetGameObject() => PronounHelpers.GetPartyMemberByClassJobID(ClassJobID);
@@ -246,7 +246,7 @@ public class GunbreakerPronoun : IGamePronoun
 {
     private const byte ClassJobID = 37;
 
-    public string Name => "Gunbreaker";
+    public string Name => "绝枪";
     public string Placeholder => "<gnb>";
     public uint ID => 10_220 + ClassJobID;
     public unsafe GameObject* GetGameObject() => PronounHelpers.GetPartyMemberByClassJobID(ClassJobID);
@@ -256,7 +256,7 @@ public class WhiteMagePronoun : IGamePronoun
 {
     private const byte ClassJobID = 24;
 
-    public string Name => "White Mage";
+    public string Name => "白魔";
     public string Placeholder => "<whm>";
     public uint ID => 10_220 + ClassJobID;
     public unsafe GameObject* GetGameObject() => PronounHelpers.GetPartyMemberByClassJobID(ClassJobID);
@@ -266,7 +266,7 @@ public class ScholarPronoun : IGamePronoun
 {
     private const byte ClassJobID = 28;
 
-    public string Name => "Scholar";
+    public string Name => "学者";
     public string Placeholder => "<sch>";
     public uint ID => 10_220 + ClassJobID;
     public unsafe GameObject* GetGameObject() => PronounHelpers.GetPartyMemberByClassJobID(ClassJobID);
@@ -276,7 +276,7 @@ public class AstrologianPronoun : IGamePronoun
 {
     private const byte ClassJobID = 33;
 
-    public string Name => "Astrologian";
+    public string Name => "占星";
     public string Placeholder => "<ast>";
     public uint ID => 10_220 + ClassJobID;
     public unsafe GameObject* GetGameObject() => PronounHelpers.GetPartyMemberByClassJobID(ClassJobID);
@@ -286,7 +286,7 @@ public class SagePronoun : IGamePronoun
 {
     private const byte ClassJobID = 40;
 
-    public string Name => "Sage";
+    public string Name => "贤者";
     public string Placeholder => "<sge>";
     public uint ID => 10_220 + ClassJobID;
     public unsafe GameObject* GetGameObject() => PronounHelpers.GetPartyMemberByClassJobID(ClassJobID);
@@ -296,7 +296,7 @@ public class MonkPronoun : IGamePronoun
 {
     private const byte ClassJobID = 20;
 
-    public string Name => "Monk";
+    public string Name => "武僧";
     public string Placeholder => "<mnk>";
     public uint ID => 10_220 + ClassJobID;
     public unsafe GameObject* GetGameObject() => PronounHelpers.GetPartyMemberByClassJobID(ClassJobID);
@@ -306,7 +306,7 @@ public class DragoonPronoun : IGamePronoun
 {
     private const byte ClassJobID = 22;
 
-    public string Name => "Dragoon";
+    public string Name => "龙骑";
     public string Placeholder => "<drg>";
     public uint ID => 10_220 + ClassJobID;
     public unsafe GameObject* GetGameObject() => PronounHelpers.GetPartyMemberByClassJobID(ClassJobID);
@@ -316,7 +316,7 @@ public class NinjaPronoun : IGamePronoun
 {
     private const byte ClassJobID = 30;
 
-    public string Name => "Ninja";
+    public string Name => "忍者";
     public string Placeholder => "<nin>";
     public uint ID => 10_220 + ClassJobID;
     public unsafe GameObject* GetGameObject() => PronounHelpers.GetPartyMemberByClassJobID(ClassJobID);
@@ -326,7 +326,7 @@ public class SamuraiPronoun : IGamePronoun
 {
     private const byte ClassJobID = 34;
 
-    public string Name => "Samurai";
+    public string Name => "武士";
     public string Placeholder => "<sam>";
     public uint ID => 10_220 + ClassJobID;
     public unsafe GameObject* GetGameObject() => PronounHelpers.GetPartyMemberByClassJobID(ClassJobID);
@@ -336,7 +336,7 @@ public class ReaperPronoun : IGamePronoun
 {
     private const byte ClassJobID = 39;
 
-    public string Name => "Reaper";
+    public string Name => "镰刀";
     public string Placeholder => "<rpr>";
     public uint ID => 10_220 + ClassJobID;
     public unsafe GameObject* GetGameObject() => PronounHelpers.GetPartyMemberByClassJobID(ClassJobID);
@@ -346,7 +346,7 @@ public class BardPronoun : IGamePronoun
 {
     private const byte ClassJobID = 23;
 
-    public string Name => "Bard";
+    public string Name => "诗人";
     public string Placeholder => "<brd>";
     public uint ID => 10_220 + ClassJobID;
     public unsafe GameObject* GetGameObject() => PronounHelpers.GetPartyMemberByClassJobID(ClassJobID);
@@ -356,7 +356,7 @@ public class MachinistPronoun : IGamePronoun
 {
     private const byte ClassJobID = 31;
 
-    public string Name => "Machinist";
+    public string Name => "机工";
     public string Placeholder => "<mch>";
     public uint ID => 10_220 + ClassJobID;
     public unsafe GameObject* GetGameObject() => PronounHelpers.GetPartyMemberByClassJobID(ClassJobID);
@@ -366,7 +366,7 @@ public class DancerPronoun : IGamePronoun
 {
     private const byte ClassJobID = 38;
 
-    public string Name => "Dancer";
+    public string Name => "舞者";
     public string Placeholder => "<dnc>";
     public uint ID => 10_220 + ClassJobID;
     public unsafe GameObject* GetGameObject() => PronounHelpers.GetPartyMemberByClassJobID(ClassJobID);
@@ -376,7 +376,7 @@ public class BlackMagePronoun : IGamePronoun
 {
     private const byte ClassJobID = 25;
 
-    public string Name => "Black Mage";
+    public string Name => "黑魔";
     public string Placeholder => "<blm>";
     public uint ID => 10_220 + ClassJobID;
     public unsafe GameObject* GetGameObject() => PronounHelpers.GetPartyMemberByClassJobID(ClassJobID);
@@ -386,7 +386,7 @@ public class SummonerPronoun : IGamePronoun
 {
     private const byte ClassJobID = 27;
 
-    public string Name => "Summoner";
+    public string Name => "召唤";
     public string Placeholder => "<smn>";
     public uint ID => 10_220 + ClassJobID;
     public unsafe GameObject* GetGameObject() => PronounHelpers.GetPartyMemberByClassJobID(ClassJobID);
@@ -396,7 +396,7 @@ public class RedMagePronoun : IGamePronoun
 {
     private const byte ClassJobID = 35;
 
-    public string Name => "Red Mage";
+    public string Name => "赤魔";
     public string Placeholder => "<rdm>";
     public uint ID => 10_220 + ClassJobID;
     public unsafe GameObject* GetGameObject() => PronounHelpers.GetPartyMemberByClassJobID(ClassJobID);
@@ -406,7 +406,7 @@ public class BlueMagePronoun : IGamePronoun
 {
     private const byte ClassJobID = 36;
 
-    public string Name => "Blue Mage";
+    public string Name => "青魔";
     public string Placeholder => "<blu>";
     public uint ID => 10_220 + ClassJobID;
     public unsafe GameObject* GetGameObject() => PronounHelpers.GetPartyMemberByClassJobID(ClassJobID);
@@ -444,12 +444,12 @@ public static class PronounManager
 
     private static readonly Dictionary<PronounID, string> formalPronounIDName = new()
     {
-        [PronounID.FocusTarget] = "Focus Target",
-        [PronounID.TargetsTarget] = "Target's Target",
-        [PronounID.LastTarget] = "Last Target",
-        [PronounID.LastEnemy] = "Last Enemy",
-        [PronounID.LastAttacker] = "Last Attacker",
-        [PronounID.Me] = "Self"
+        [PronounID.FocusTarget] = "焦点目标",
+        [PronounID.TargetsTarget] = "目标的目标",
+        [PronounID.LastTarget] = "最后目标",
+        [PronounID.LastEnemy] = "最后敌人",
+        [PronounID.LastAttacker] = "最后攻击者",
+        [PronounID.Me] = "自己"
     };
 
     public static void Initialize()
@@ -460,7 +460,7 @@ public static class PronounManager
             if (pronoun == null) continue;
 
             if (pronoun.ID < MinimumCustomPronounID)
-                throw new ApplicationException("Custom pronoun IDs must be above 10000");
+                throw new ApplicationException("自定义代词 ID 必须大于 10000");
 
             CustomPronouns.Add(pronoun.ID, pronoun);
             CustomPlaceholders.Add(pronoun.Placeholder, pronoun);
